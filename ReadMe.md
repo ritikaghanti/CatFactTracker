@@ -45,23 +45,64 @@ Submit a new fact via form data: fact=...
  - Styled using simple inline React styles
 
 🛠 Setup Instructions
-1. Backend Setup
-cd backend
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r ../requirements.txt
 
-To run the FastAPI backend:
+1. Clone the GitHub Repo
+git clone https://github.com/ritikaghanti/CatFactTracker.git
+cd CatFactTracker
+
+2. Set Up the Python Backend
+    a. Create and activate a virtual environment
+        python -m venv venv
+        source venv/bin/activate       # Mac/Linux
+        # OR
+        venv\Scripts\activate          # Windows
+
+    b. Install backend dependencies
+        pip install -r requirements.txt
+        💡 If you get a form data error, also run:
+        pip install python-multipart
+
+3. Start the FastAPI Server
+cd backend
 uvicorn main:app --reload
+
+To test backend:
+Open: http://localhost:8000/docs
 
 To populate initial facts:
 python import_cat_facts.py
 
-2. Frontend Setup
+4. Set Up and Start the React Frontend
 cd frontend
 npm install
 npm start
-Visit: http://localhost:3000
+
+🧹 Clearing the Database & Running the Script
+If you'd like to clear the database and repopulate it with fresh cat facts using the standalone script, follow these steps:
+
+🔸 Option 1: Delete the Database File (Full Reset)
+From the project root:
+rm backend/cat_facts.db       # macOS/Linux
+# OR
+del backend\cat_facts.db      # Windows
+This will delete the database entirely. You can then re-run the script to regenerate it.
+
+🔸 Option 2: Use the clear_db() Function (Keep DB Schema)
+Alternatively, use the clear_db() function in db.py to only delete all rows from the facts table without removing the database file.
+
+▶️ Running the Script (No FastAPI Required)
+To manually fetch and store 5 new cat facts:
+
+Stop the backend if it’s running (CTRL+C)
+
+Activate your virtual environment
+Navigate to the backend/ folder: cd backend
+
+Run the script: python import_cat_facts.py
+This will fetch 5 new facts from the external API and insert them into cat_facts.db.
+
+Once done, you can start the backend again with: uvicorn main:app --reload
+And access the updated facts through the frontend or the FastAPI docs.
 
 🐾 Credits
 Cat facts powered by: https://catfact.ninja
