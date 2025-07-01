@@ -25,7 +25,7 @@ function App() {
   const login = async () => {
     try {
       const res = await axios.post(
-        "https://catfacttracker.onrender.com/login",
+        "https://catfacttracker-hj4a.onrender.com/login",
         new URLSearchParams({ 
           username: "admin",
           password: "password"
@@ -50,7 +50,7 @@ function App() {
 
   const fetchFacts = async () => {
     try {
-      await axios.post("https://catfacttracker.onrender.com/fetch");
+      await axios.post("https://catfacttracker-hj4a.onrender.com/fetch");
       toast.success("Fetched 5 new facts!");
       fetchAllFacts();
     } catch (err) {
@@ -70,7 +70,7 @@ function App() {
 
   const fetchAllFacts = async () => {
     try {
-      const res = await axios.get("https://catfacttracker.onrender.com/catfacts");
+      const res = await axios.get("https://catfacttracker-hj4a.onrender.com/catfacts");
       setFacts(res.data);
     } catch (err) {
       console.error("Error fetching all facts:", err);
@@ -81,7 +81,7 @@ function App() {
 
   const fetchRandomFact = async () => {
     try {
-      const res = await axios.get("https://catfacttracker.onrender.com/random");
+      const res = await axios.get("https://catfacttracker-hj4a.onrender.com/random");
       setRandomFact(res.data.fact);
     } catch (err) {
       console.error("Error fetching random fact:", err);
@@ -92,7 +92,7 @@ function App() {
     if (!newFact.trim()) return;
     try {
       const res = await axios.post(
-        "https://catfacttracker.onrender.com/catfacts",
+        "https://catfacttracker-hj4a.onrender.com/catfacts",
         new URLSearchParams({ fact: newFact }),
         {
           headers: {
@@ -118,7 +118,7 @@ function App() {
 
   const deleteFact = async (id) => {
     try {
-      await axios.delete(`https://catfacttracker.onrender.com/catfacts/${id}`, {
+      await axios.delete(`https://catfacttracker-hj4a.onrender.com/catfacts/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFacts((prevFacts) => prevFacts.filter((f) => f.id !== id));
