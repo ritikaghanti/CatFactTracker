@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Pangolin', cursive;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#fffde8, #ffe8f0);
+  /* background-image: url("https://img.freepik.com/premium-vector/cute-cat-wallpaper-background-pastel-colour_493693-260.jpg"); */
+  background-color: #ffe8f0;
+  background-repeat: repeat;
+  background-size: 250px;
+  color: #444;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  background-color: #f48fb1;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem;
+  border-radius: 30px;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input, select {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Pangolin', cursive;
+  outline: none;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #d81b60;
 }
