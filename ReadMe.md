@@ -2,30 +2,44 @@
 A small full-stack application that fetches cat facts from an external API, stores them in a local SQLite database using FastAPI, and allows interaction via a React frontend.
 
 🚀 Features
-Fetch 5 random cat facts from catfact.ninja
+Backend (FastAPI):
+ - JWT Authentication for POST/DELETE routes
+ - Secure login with hashed password and token-based sessions
+ - CORS enabled for frontend-backend interaction
+ - SQLite database for persistent storage
+ - API routes:
+   - GET /catfacts: View all stored facts
+   - GET /catfacts/random: Fetch a random fact
+   - POST /catfacts: Add a new fact (requires login)
+   - DELETE /catfacts/{fact_id}: Remove a fact (requires login)
 
-Store facts in a local SQLite database (no duplicates)
+Frontend (React):
+ - Responsive UI with modern styling and animations
+ - Confetti animation on successful fact addition 🎉
+ - Login/logout flow with token storage in localStorage
+ - Login-protected Add Fact and Delete Fact features
+ - Fact list with search, sort (length/date), and pagination
+ - Toast notifications for feedback
+ - Modal form for adding new facts
+ - Cute cat-themed UI (with animation and background image)
 
-FastAPI backend with:
- - GET /catfacts: View all stored facts
- - GET /catfacts/random: Fetch a random fact from the database
- - POST /catfacts: Add a new fact
-
-React frontend with:
- - Form to add new facts
- - Button to view/hide all facts
- - Button to fetch a random fact
- - Modern, responsive UI
+🧪 Testing
+Backend:
+ - Pytest used to test routes and API responses
+ - Located under: `backend/tests/`
 
 📁 Project Structure
-introproject/
+CatFactTracker/
 ├── backend/
 │   ├── main.py                # FastAPI app
 │   ├── db.py                  # Database logic
-│   ├── import_cat_facts.py    # Async standalone script to fetch & store 5 new facts
-│   └── cat_facts.db           # SQLite DB (auto-generated)
+│   ├── import_cat_facts.py    # Async script to fetch & store 5 new facts
+│   ├── auth.py                # Authentication logic (JWT)
+│   ├── cat_facts.db           # SQLite DB (auto-generated)
+│   └── tests/                 # Pytest test cases
 ├── frontend/                  # React app
-│   └── src/App.js             # Main frontend logic
+│   ├── src/App.js             # Main frontend logic
+│   ├── src/App.css            # Custom cute themed styling
 ├── requirements.txt           # Python dependencies
 └── README.md                  # Project documentation
 
@@ -37,7 +51,15 @@ GET /catfacts/random
 Returns one random fact.
 
 POST /catfacts
-Submit a new fact via form data: fact=...
+Submit a new fact via form data: `fact=...` (Requires Bearer Token)
+
+DELETE /catfacts/{fact_id}
+Deletes a fact by ID (Requires Bearer Token)
+
+POST /login
+Submit `username` and `password` as form data to receive a JWT token.
+Username: admin
+Password: password
 
 📌 Notes
  - CORS is enabled to allow frontend-backend interaction
@@ -62,8 +84,13 @@ cd CatFactTracker
         💡 If you get a form data error, also run:
         pip install python-multipart
 
+    🧪 Running Backend Tests
+        cd backend
+        pytest
+
+
 3. Start the FastAPI Server
-cd backend
+cd backend  
 uvicorn main:app --reload
 
 To test backend:
@@ -73,9 +100,11 @@ To populate initial facts:
 python import_cat_facts.py
 
 4. Set Up and Start the React Frontend
-cd frontend
-npm install
+cd frontend 
+npm install 
 npm start
+
+If required, npm install react-toastify
 
 🧹 Clearing the Database & Running the Script
 If you'd like to clear the database and repopulate it with fresh cat facts using the standalone script, follow these steps:
@@ -106,3 +135,5 @@ And access the updated facts through the frontend or the FastAPI docs.
 
 🐾 Credits
 Cat facts powered by: https://catfact.ninja
+
+Made with ❤️ by Ritika Ghanti
