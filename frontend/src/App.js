@@ -81,7 +81,7 @@ function App() {
 
   const fetchRandomFact = async () => {
     try {
-      const res = await axios.get("https://catfacttracker-hj4a.onrender.com/random");
+      const res = await axios.get("https://catfacttracker-hj4a.onrender.com/catfacts/random");
       setRandomFact(res.data.fact);
     } catch (err) {
       console.error("Error fetching random fact:", err);
