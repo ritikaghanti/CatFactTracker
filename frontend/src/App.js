@@ -140,6 +140,18 @@ function App() {
 
   return (
     <div className="App">
+        <div style={{
+          backgroundColor: "#fff3cd",
+          color: "#856404",
+          padding: "10px",
+          border: "1px solid #ffeeba",
+          borderRadius: "5px",
+          marginBottom: "1rem",
+          fontWeight: "bold"
+          }}>
+          ⚠️ Initial load may take a few seconds if the backend is waking up.
+      </div>
+
       <h1>😸 Cat Facts Galore!</h1>
       {showConfetti && <Confetti />}
 

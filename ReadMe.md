@@ -5,6 +5,14 @@ A full-stack application that fetches cat facts from an external API, stores the
 
 [Visit this Project](https://cat-fact-tracker.vercel.app/)
 
+⚠️ Note on Initial Load Time
+This app uses Render for hosting the FastAPI backend on a free tier. As a result, the backend service goes to sleep after 15 minutes of inactivity. When a new request is made, it may take a few seconds for the service to "wake up."
+
+To improve user experience, a warning banner has been added on the frontend that notifies users:
+"⚠️ Initial load may take a few seconds if the backend is waking up."
+
+This ensures users are aware of the brief delay during cold starts.
+
 ## 📚 Table of Contents
 - 🚀 [Features](#-features)
 - 🧰 [Technologies Used](#-technologies-used)
