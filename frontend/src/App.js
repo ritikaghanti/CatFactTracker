@@ -26,7 +26,10 @@ function App() {
     try {
       const res = await axios.post(
         "https://catfacttracker.onrender.com/login",
-        new URLSearchParams({ username, password }),
+        new URLSearchParams({ 
+          username: "admin",
+          password: "password"
+        }),
         { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
       );
       localStorage.setItem("token", res.data.access_token);
