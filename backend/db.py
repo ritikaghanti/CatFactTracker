@@ -47,3 +47,12 @@ def clear_db():
     c.execute("DELETE FROM cat_facts")
     conn.commit()
     conn.close()
+
+def delete_fact_by_id(fact_id):
+    conn = sqlite3.connect("cat_facts.db")
+    cur = conn.cursor()
+    cur.execute("DELETE FROM cat_facts WHERE id=?", (fact_id,))
+    conn.commit()
+    success = cur.rowcount > 0
+    conn.close()
+    return success
