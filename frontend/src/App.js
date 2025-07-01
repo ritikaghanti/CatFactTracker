@@ -25,7 +25,7 @@ function App() {
   const login = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/login",
+        "https://catfacttracker.onrender.com/login",
         new URLSearchParams({ username, password }),
         { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
       );
