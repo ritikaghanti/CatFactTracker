@@ -155,6 +155,14 @@ function App() {
       <h1>😸 Cat Facts Galore!</h1>
       {showConfetti && <Confetti />}
 
+      {!isAuthenticated && (
+        <div>
+          <input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button onClick={login}>🔐 Login</button>
+        </div>
+      )}
+
       {randomFact && (
         <div style={{ margin: "1rem" }}>
           <strong>🎲 Random Fact:</strong>
@@ -174,14 +182,6 @@ function App() {
           </>
         )}
       </div>
-
-      {!isAuthenticated && (
-        <div>
-          <input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button onClick={login}>🔐 Login</button>
-        </div>
-      )}
 
       {showModal && (
         <div className="modal">
