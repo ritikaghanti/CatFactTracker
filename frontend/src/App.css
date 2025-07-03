@@ -1,30 +1,45 @@
-body {
+/* body {
   font-family: 'Pangolin', cursive;
   margin: 0;
   padding: 0;
   background: linear-gradient(#fffde8, #ffe8f0);
-  /* background-image: url("https://img.freepik.com/premium-vector/cute-cat-wallpaper-background-pastel-colour_493693-260.jpg"); */
+  background-image: url("https://img.freepik.com/premium-vector/cute-cat-wallpaper-background-pastel-colour_493693-260.jpg");
   background-color: #ffe8f0;
   background-repeat: repeat;
   background-size: 250px;
   color: #444;
+} */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 button {
-  background-color: #f48fb1;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  margin: 0.3rem;
-  border-radius: 30px;
+ background-color: #4f46e5;
   color: white;
-  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.1s ease-in-out;
+  font-weight: 600;
+  margin: 0.25rem;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
   transform: scale(1.05);
+  background-color: #4338ca;
 }
 
 input, select {
