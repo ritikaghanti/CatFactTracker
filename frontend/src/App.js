@@ -50,7 +50,7 @@ function App() {
 
   const fetchFacts = async () => {
     try {
-      await axios.post("https://catfacttracker-hj4a.onrender.com/fetch");
+      await axios.post("https://catfacttracker-hj4a.onrender.com/catfacts/fetch");
       toast.success("Fetched 5 new facts!");
       fetchAllFacts();
     } catch (err) {
